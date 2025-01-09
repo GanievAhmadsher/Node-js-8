@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "username": "Malik",
+    "age": 26
+  },
+  {
+    "id": 2,
+    "username": "Muhammad Ali",
+    "age": 21
+  },
+  {
+    "id": 3,
+    "username": "Muhammad Islom",
+    "age": 23
+  },
+  {
+    "id": 4,
+    "username": "Muhammad Yusuf",
+    "age": 29
+  },
+  {
+    "id": 5,
+    "username": "Ibrohim Mirzo",
+    "age": 25
+  },
+  {
+    "id": 6,
+    "username": "Muhammad Alparslon",
+    "age": 30
+  },
+  {
+    "id": 7,
+    "username": "Salohiddin",
+    "age": 28
+  },
+  {
+    "id": 8,
+    "username": "Mehmed",
+    "age": 22
+  },
+  {
+    "id": 9,
+    "username": "Ollohberdi",
+    "age": 24
+  },
+  {
+    "id": 10,
+    "username": "Aliakbar",
+    "age": 27
+  },
+  {
+    "id": 11,
+    "username": "Aliyor",
+    "age": 28
+  },
+  {
+    "id": 12,
+    "username": "MuhammadZiyod",
+    "age": 32
+  },
+  {
+    "id": 13,
+    "username": "Mohinur",
+    "age": 32
+  }
+]
