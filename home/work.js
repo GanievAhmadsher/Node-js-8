@@ -9,16 +9,21 @@ const work = express();
 work.use(express.json());
 
 work.get("/api/products/search", async (req, res) => {
+  const query = req.query.q.toLowerCase();
   const _path_ = path.join(process.cwd(), "home", "api", "products.json");
   const products = await JSON.parse(await fsP.readFile(_path_));
-  const product_category = products.filter(
-    (item) => item.category == req.query.q.toLowerCase()
+  const result = products.filter(
+    (p) =>
+      p.name.toLowerCase().includes(query) ||
+      p.category.toLowerCase().includes(query)
   );
-  if (product_category.length !== 0) {
-    res.status(200).json(product_category);
-  } else {
-    res.status(500).json({ "Error Message": "Product not found" });
+
+  if (result.length === 0) {
+    return res
+      .status(404)
+      .json({ message: "Qidiruv bo'yicha mahsulotlar topilmadi" });
   }
+  res.status(200).json(result);
 });
 
 work.get("/api/products", async (req, res) => {
@@ -30,17 +35,30 @@ work.get("/api/products", async (req, res) => {
 work.get("/api/products/:id", async (req, res) => {
   const _path_ = path.join(process.cwd(), "home", "api", "products.json");
   const products = await JSON.parse(await fsP.readFile(_path_));
-  const product = products.filter((item) => item.id == req.params.id);
+  const product = products.find((item) => item.id == req.params.id);
+
+  if (!product) {
+    return res.status(404).json({ message: "Mahsulot topilmadi" });
+  }
+
   res.json(product);
 });
 
 work.get("/api/products/category/:name", async (req, res) => {
   const _path_ = path.join(process.cwd(), "home", "api", "products.json");
   const products = await JSON.parse(await fsP.readFile(_path_));
-  const product = products.filter(
-    (item) => item.category == req.params.name.toLowerCase()
+  const filteredProducts = products.filter(
+    (item) => item.category === req.params.name.toLowerCase()
   );
-  res.json(product);
+  console.log(filteredProducts);
+
+  if (filteredProducts.length === 0) {
+    return res
+      .status(404)
+      .json({ message: "Ushbu kategoriyada mahsulotlar topilmadi" });
+  }
+
+  res.json(filteredProducts);
 });
 
 // ! page not found

@@ -220,7 +220,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:4001/api/products/search?q=TaBlet",
+							"raw": "localhost:4001/api/products/search?q=ipad air ",
 							"host": [
 								"localhost"
 							],
@@ -233,7 +233,7 @@
 							"query": [
 								{
 									"key": "q",
-									"value": "TaBlet"
+									"value": "ipad air "
 								}
 							]
 						}
