@@ -50,7 +50,6 @@ work.get("/api/products/category/:name", async (req, res) => {
   const filteredProducts = products.filter(
     (item) => item.category === req.params.name.toLowerCase()
   );
-  console.log(filteredProducts);
 
   if (filteredProducts.length === 0) {
     return res
